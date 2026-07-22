@@ -286,8 +286,16 @@ def combine_predictions(tree_predictions):
 
     return out
 
-# Step 14 - predict_forest (not yet solved)
-# TODO: implement
+# Step 14 - predict_forest
+def predict_forest(forest, features):
+    # predict classes for a dataset using the whole trained forest.
+    
+    tree_predictions = np.zeros((len(forest), features.shape[0]), dtype=int)
+
+    for i, t in enumerate(forest):
+        tree_predictions[i] = predict_tree(t["tree"], features)
+
+    return combine_predictions(tree_predictions)
 
 # Step 15 - accuracy (not yet solved)
 # TODO: implement
