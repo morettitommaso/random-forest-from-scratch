@@ -1,7 +1,5 @@
 """
 Random Forest from Scratch
-
-Assembled from your step-by-step solutions.
 """
 
 import numpy as np
@@ -20,8 +18,6 @@ def impurity(labels):
     return float(1 - np.sum(p ** 2))
 
 # Step 2 - split_dataset
-import numpy as np
-
 def split_dataset(features, labels, feature_index, threshold):
     # partition rows into left (feature <= threshold) and right (feature > threshold)
     
@@ -46,8 +42,6 @@ def split_score(parent_labels, left_labels, right_labels):
     return impurity(parent_labels) - (w_l * impurity(left_labels) + w_r * impurity(right_labels))
 
 # Step 4 - best_split
-import numpy as np
-
 def best_split(features, labels, feature_indices):
     # search feature_indices for the (feature, threshold) that best improves purity.
 
@@ -88,7 +82,7 @@ def best_split(features, labels, feature_indices):
 # Step 5 - should_stop
 def should_stop(labels, depth, max_depth, min_samples_split):
     """Return True if this node should become a leaf instead of splitting further."""
-    # TODO: decide whether to stop growing based on purity, depth, and size...
+    # decide whether to stop growing based on purity, depth, and size...
 
     # Check purity
     if len(np.unique(labels)) == 1:
