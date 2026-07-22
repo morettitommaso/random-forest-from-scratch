@@ -281,11 +281,8 @@ def combine_predictions(tree_predictions):
     out = np.zeros(n, dtype=int)
 
     for j in range(n):
-        
         label, counts = np.unique(tree_predictions[:, j], return_counts=True)
-
-        idx = np.argmax(counts)
-        out[j] = label[idx]
+        out[j] = label[np.argmax(counts)]
 
     return out
 
